@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="./style.css" />
+    <title>Rock Paper Scissors</title>
+  </head>
+  <body class="container">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <div id="app">
+      <div class="text-center text-light bg-dark p-3">
+        <h1>Rock Paper Scissors</h1>
+        <div class="row buttons pt-2">
+          <div></div>
+          <p class="lead">Make your Play!</p>
+          <button v-on:click="reset()" class="btn btn-outline-light">
+            Reset
+          </button>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header text-center">
+          <div class="row buttons">
+            <div class="lead"><strong>AI: </strong>{{aiScore}}</div>
+            <div class="lead"><strong>You: </strong>{{yourScore}}</div>
+          </div>
+        </div>
+        <div class="card-body scroll">
+          <ul class="list-group list-group-flush">
+            <li v-for="message in messages" class="list-group-item">
+              {{message}}
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="mx-auto row buttons fixed-bottom jumbotron container mb-0">
+        <button
+          id="rock"
+          v-on:click="makePlay(0)"
+          class="btn btn-danger btn-lg"
+        >
+          Rock
+        </button>
+        <button
+          id="paper"
+          v-on:click="makePlay(1)"
+          class="btn btn-warning btn-lg"
+        >
+          Paper
+        </button>
+        <button
+          id="scissors"
+          v-on:click="makePlay(2)"
+          class="btn btn-success btn-lg"
+        >
+          Scissors
+        </button>
+      </div>
+    </div>
+    <script src="./script.js"></script>
+  </body>
+</html>
